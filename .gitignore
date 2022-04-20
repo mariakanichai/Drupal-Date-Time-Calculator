@@ -15,7 +15,7 @@
 /web/sites/*
 /web/sites/*/*settings*.php
 /web/sites/*/*services*.yml
-!/web/sites/default/
+/web/sites/default/files/
 !/web/sites/example.sites.php
 
 # Ignore IDE files
