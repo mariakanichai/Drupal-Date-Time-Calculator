@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function time_calculation_theme() {
+    return array(
+        'time_block' =>
+        array(
+            'variables' => array(
+                'city' => NULL,
+                'country' => NULL,
+                'dateTime' => NULL,
+
+        ),
+            'template' => 'block--time-block'
+    ),
+);
+}
