@@ -17,6 +17,7 @@
 /web/sites/*/*services*.yml
 /web/sites/default/files/
 !/web/sites/example.sites.php
+!/web/sites/default/files/config/sync/
 
 # Ignore IDE files
 /.idea/
