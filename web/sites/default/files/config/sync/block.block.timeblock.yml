@@ -1,0 +1,20 @@
+uuid: f82af524-6810-49ce-bc12-7c810c86ad3d
+langcode: en
+status: true
+dependencies:
+  module:
+    - time_calculation
+  theme:
+    - bartik
+id: timeblock
+theme: bartik
+region: content
+weight: 0
+provider: null
+plugin: time_block
+settings:
+  id: time_block
+  label: 'Time block'
+  label_display: visible
+  provider: time_calculation
+visibility: {  }
