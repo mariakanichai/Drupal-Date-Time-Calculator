@@ -10,9 +10,17 @@ use Drupal\Core\Datetime\DrupalDateTime;
 class TimeCalculationService {
 
   /**
-   * Drupal's settings manager.
+   * Configuration settings variable.
+   *
+   * @var string
    */
   protected $config;
+
+  /**
+   * DateTime variable.
+   *
+   * @var string
+   */
   protected $date;
 
   /**
