@@ -16,10 +16,15 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * )
  */
 class TimeBlock extends BlockBase implements ContainerFactoryPluginInterface {
+  /**
+   * Variable for timeCalculation sevice.
+   *
+   * @var string
+   */
   protected $timeCalculation;
 
   /**
-   * Constructor to inject the time calculation service
+   * {@inheritdoc}
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition, TimeCalculationService $timeCalculation) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
@@ -27,7 +32,7 @@ class TimeBlock extends BlockBase implements ContainerFactoryPluginInterface {
   }
 
   /**
-   *
+   * {@inheritdoc}
    */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
     return new static(
@@ -53,6 +58,13 @@ class TimeBlock extends BlockBase implements ContainerFactoryPluginInterface {
       '#country' => $details['country'],
 
     ];
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getCacheMaxAge() {
+    return 0;
   }
 
 }
