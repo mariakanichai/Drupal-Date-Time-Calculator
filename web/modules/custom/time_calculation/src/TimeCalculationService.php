@@ -27,7 +27,7 @@ class TimeCalculationService {
   /**
    * Calculate time based on the timezone config values.
    */
-  public function myLogic() {
+  public function dateTimeCalculate() {
     $country = $this->config->get('country');
     $timeZone = $this->config->get('timezone');
     $city = $this->config->get('city');

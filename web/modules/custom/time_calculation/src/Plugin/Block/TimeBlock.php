@@ -44,7 +44,7 @@ class TimeBlock extends BlockBase implements ContainerFactoryPluginInterface {
   public function build() {
     $config = \Drupal::config('time_calculation.settings');
     $city = $config->get('city');
-    $details = $this->timeCalculation->myLogic();
+    $details = $this->timeCalculation->dateTimeCalculate();
 
     return [
       '#theme' => 'time_block',
