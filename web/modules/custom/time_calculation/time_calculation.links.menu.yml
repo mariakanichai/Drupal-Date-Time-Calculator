@@ -1,0 +1,9 @@
+time_calculation.configure:
+  title: 'TimeZone Configuration'  
+  parent: system.admin_config
+  route_name: time_calculation.configure  
+time_calculation.api_config:
+  title: 'TimeZone Settings'
+  parent: time_calculation.configure
+  description: 'Configure data for Location, City, TimeZone'
+  route_name: time_calculation.api_config

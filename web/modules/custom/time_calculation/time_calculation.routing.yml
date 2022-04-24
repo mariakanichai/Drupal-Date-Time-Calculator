@@ -1,0 +1,13 @@
+time_calculation.configure:
+  path: '/admin/config/api'
+  defaults:
+    _title: 'TimeZone Configuration'
+  requirements:
+    _permission: 'access administration pages'
+time_calculation.api_config:
+  path: '/admin/config/time/settings'
+  defaults:
+    _form: '\Drupal\time_calculation\Form\TimeConfigForm'
+    _title: 'TimeZone Settings'
+  requirements:
+    _permission: 'access administration pages'

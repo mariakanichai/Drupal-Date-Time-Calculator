@@ -1,0 +1,6 @@
+name: Time Calculation Module
+type: module
+description: 'Module to calculate and display current time based on the timezone'
+package: Custom
+version: 1.0
+core_version_requirement: ^8 || ^9
