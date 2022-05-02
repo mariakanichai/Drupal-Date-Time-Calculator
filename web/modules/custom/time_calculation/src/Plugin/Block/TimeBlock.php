@@ -6,6 +6,7 @@ use Drupal\Core\Block\BlockBase;
 use Drupal\time_calculation\TimeCalculationService;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\Core\Cache\Cache;
 
 /**
  * Provides a 'Time displaying' Block.
@@ -56,15 +57,34 @@ class TimeBlock extends BlockBase implements ContainerFactoryPluginInterface {
       '#city' => $details['city'],
       '#dateTime' => $details['dateTime'],
       '#country' => $details['country'],
-
+      '#cache' => [
+        'tags' => $this->getCacheTags(),
+        'contexts' => $this->getCacheContexts(),
+      ],
     ];
   }
 
   /**
-   * {@inheritdoc}
+   * Cache tags.
    */
-  public function getCacheMaxAge() {
-    return 0;
+  public function getCacheTags() {
+    // Block will rebuild when node changes.
+    if ($node = \Drupal::routeMatch()->getParameter('node')) {
+      // If there is node add  cachetag.
+      return Cache::mergeTags(parent::getCacheTags(), ['node:' . $node->id()]);
+    }
+    else {
+      // Return default tags.
+      return parent::getCacheTags();
+    }
+  }
+
+  /**
+   * Get CacheContext.
+   */
+  public function getCacheContexts() {
+    // Every new route this block will rebuild.
+    return Cache::mergeContexts(parent::getCacheContexts(), ['route']);
   }
 
 }
